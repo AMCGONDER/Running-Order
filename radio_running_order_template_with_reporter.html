@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Program Running Order</title>
+    <style>
+        /* CSS Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .add-row {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Radio Program Running Order</h1>
+    
+    <!-- Broadcast Details -->
+    <label for="station-name">Station Name</label>
+    <input type="text" id="station-name" placeholder="Station Name">
+
+    <label for="reporter-name">Name of the Reporter</label>
+    <input type="text" id="reporter-name" placeholder="Reporter Name">
+
+    <label for="date">Broadcast Date</label>
+    <input type="date" id="date">
+
+    <label for="start-time">Start Time</label>
+    <input type="time" id="start-time">
+
+    <label for="end-time">End Time</label>
+    <input type="time" id="end-time">
+
+    <!-- Program Details -->
+    <h3>Program Details</h3>
+    <table id="program-table">
+        <tr>
+            <th>Program Type</th>
+            <th>Prepared By</th>
+            <th>Duration (min)</th>
+        </tr>
+        <tr>
+            <td><input type="text" placeholder="Program Type"></td>
+            <td><input type="text" placeholder="Prepared By"></td>
+            <td><input type="number" placeholder="Duration"></td>
+        </tr>
+    </table>
+    <button class="add-row" onclick="addRow('program-table')">Add Program Row</button>
+
+    <!-- Music Details -->
+    <h3>Music Details</h3>
+    <table id="music-table">
+        <tr>
+            <th>Song Title</th>
+            <th>Singer</th>
+            <th>Duration (min)</th>
+        </tr>
+        <tr>
+            <td><input type="text" placeholder="Song Title"></td>
+            <td><input type="text" placeholder="Singer"></td>
+            <td><input type="number" placeholder="Duration"></td>
+        </tr>
+    </table>
+    <button class="add-row" onclick="addRow('music-table')">Add Music Row</button>
+
+    <!-- Approval and Issues Section -->
+    <label for="approval">Approved By</label>
+    <input type="text" id="approval" placeholder="Approved By">
+
+    <label for="issues">Broadcast Issues</label>
+    <textarea id="issues" rows="4" placeholder="Describe any issues encountered during broadcast..."></textarea>
+
+    <!-- Print Button -->
+    <button onclick="window.print()">Print Running Order</button>
+</div>
+
+<script>
+    function addRow(tableID) {
+        var table = document.getElementById(tableID);
+        var newRow = table.insertRow(-1);
+        for (var i = 0; i < table.rows[0].cells.length; i++) {
+            var newCell = newRow.insertCell(i);
+            newCell.innerHTML = '<input type="text" placeholder="Enter here">';
+        }
+    }
+</script>
+
+</body>
+</html>
